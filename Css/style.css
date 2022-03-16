@@ -2,6 +2,8 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    background-color: black;
+    font-family: 'Press Start 2P', cursive;
 }
 
 #pokedex {
@@ -11,6 +13,32 @@
     align-items: center;
 }
 
-.arwec {
-    font-size: 3rem;
+h1 {
+    color: yellow;
+    margin-top: 20px;
+}
+
+.containerIn {
+    margin-top: 20px;
+}
+
+.buscar {
+    color: white;
+}
+
+#pokeData{
+    margin-top: 20px;
+    color: white;
+}
+
+.pokeName{
+    padding: 10px;
+}
+
+.pokeNumber {
+    padding: 10px;
+}
+
+img {
+    width: 300px;
 }

@@ -1,23 +1,31 @@
 let containerIn = document.querySelector(".containerIn");
 let buscar = document.querySelector(".buscar");
+let dex = document.querySelector("#pokeData");
+let pokeName = document.querySelector(".pokeName");
+let pokeNumber = document.querySelector(".pokeNumber");
+let pokeType = document.querySelector(".pokeType");
+let imgSprite =document.createElement("img")
+
 
 containerIn = addEventListener("submit", (e) => {
 
     e.preventDefault();
-    busqueda(buscar.value);
+    busqueda(buscar.value.toLowerCase());
 })
 
 function busqueda(pokemon) {
-    fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`) //aca la idea es que busque el nombre que entra por el input
+    fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`)
         .then((resp) => resp.json())
         .then((data) => {
             pokeCreate(data);
+            console.log(data)
         })
 }
 
-function pokeCreate(miPoke) {
-    let dex = document.querySelector("#pokeData");
-    dex.innerHTML = `<p>${miPoke.name}</p>
-    <p>${(miPoke.id)}</p>
-    <img src='${miPoke.sprites.front_default}'/>`
-}
+function pokeCreate(miPoke) {  
+    pokeNumber.textContent = `N°${miPoke.id}`;
+    pokeName.textContent = `Nombre:${miPoke.name}`;
+    pokeType.textContent = `Tipo:${miPoke.types}`
+    imgSprite.src = miPoke.sprites.front_default;
+    pokeData.append(imgSprite);
+} 
