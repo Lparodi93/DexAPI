@@ -4,6 +4,7 @@ let dex = document.querySelector("#pokeData");
 let pokeName = document.querySelector(".pokeName");
 let pokeNumber = document.querySelector(".pokeNumber");
 let pokeType = document.querySelector(".pokeType");
+let pokeType2 = document.querySelector(".pokeType2");
 let imgSprite =document.createElement("img")
 
 
@@ -25,7 +26,8 @@ function busqueda(pokemon) {
 function pokeCreate(miPoke) {  
     pokeNumber.textContent = `N°${miPoke.id}`;
     pokeName.textContent = `Nombre:${miPoke.name}`;
-    pokeType.textContent = `Tipo:${miPoke.types}`
+    pokeType.textContent = `Tipo:${miPoke.types[0].type.name}/${miPoke.types[1].type.name}`
+    //pokeType2.textContent = `Tipo:${miPoke.types[1].type.name}`
     imgSprite.src = miPoke.sprites.front_default;
     pokeData.append(imgSprite);
 } 
