@@ -5,7 +5,7 @@ let pokeName = document.querySelector(".pokeName");
 let pokeNumber = document.querySelector(".pokeNumber");
 let pokeType = document.querySelector(".pokeType");
 let pokeType2 = document.querySelector(".pokeType2");
-let imgSprite =document.createElement("img")
+let imgSprite = document.createElement("img")
 
 
 containerIn = addEventListener("submit", (e) => {
@@ -19,15 +19,14 @@ function busqueda(pokemon) {
         .then((resp) => resp.json())
         .then((data) => {
             pokeCreate(data);
-            console.log(data)
+            //console.log(data)
         })
 }
 
-function pokeCreate(miPoke) {  
-    pokeNumber.textContent = `N°${miPoke.id}`;
-    pokeName.textContent = `Nombre:${miPoke.name}`;
-    pokeType.textContent = `Tipo:${miPoke.types[0].type.name}/${miPoke.types[1].type.name}`
-    //pokeType2.textContent = `Tipo:${miPoke.types[1].type.name}`
+function pokeCreate(miPoke) {
+    pokeNumber.textContent = `N°#${miPoke.id}`;
+    pokeName.textContent = `Name:${miPoke.name}`;
+    pokeType.textContent = miPoke.types.length > 1 ? `Type:${miPoke.types[0].type.name}/${miPoke.types[1].type.name}` : `Type:${miPoke.types[0].type.name}`
     imgSprite.src = miPoke.sprites.front_default;
     pokeData.append(imgSprite);
 } 
